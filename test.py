@@ -150,14 +150,100 @@ test4 = {
     "Asthma":[{}]
 }]}
 
-for test in [test1, test2, test3, test4]:
-    string = json.dumps(test)
-    string.replace(" ", "")
-    isArray = string[0] == "["
-    result = jsonParser(string, isArray)
-    result = result[0] if isArray else result
-    print(json.loads(string) == result)
-    # print("---------------------")
-    # print(json.loads(string))
-    # print("-------------------")
-    # print(result)
+test5 = {
+  "destination_addresses": [
+    "Washington, DC, USA",
+    "Philadelphia, PA, USA",
+    "Santa Barbara, CA, USA",
+    "Miami, FL, USA",
+    "Austin, TX, USA",
+    "Napa County, CA, USA"
+  ],
+  "origin_addresses": [
+    "New York, NY, USA"
+  ],
+  "rows": [{
+    "elements": [{
+        "distance": {
+          "text": "227 mi",
+          "value": 365468
+        },
+        "duration": {
+          "text": "3 hours 54 mins",
+          "value": 14064
+        },
+        "status": "OK"
+      },
+      {
+        "distance": {
+          "text": "94.6 mi",
+          "value": 152193
+        },
+        "duration": {
+          "text": "1 hour 44 mins",
+          "value": 6227
+        },
+        "status": "OK"
+      },
+      {
+        "distance": {
+          "text": "2,878 mi",
+          "value": 4632197
+        },
+        "duration": {
+          "text": "1 day 18 hours",
+          "value": 151772
+        },
+        "status": "OK"
+      },
+      {
+        "distance": {
+          "text": "1,286 mi",
+          "value": 2069031
+        },
+        "duration": {
+          "text": "18 hours 43 mins",
+          "value": 67405
+        },
+        "status": "OK"
+      },
+      {
+        "distance": {
+          "text": "1,742 mi",
+          "value": 2802972
+        },
+        "duration": {
+          "text": "1 day 2 hours",
+          "value": 93070
+        },
+        "status": "OK"
+      },
+      {
+        "distance": {
+          "text": "2,871 mi",
+          "value": 4620514
+        },
+        "duration": {
+          "text": "1 day 18 hours",
+          "value": 152913
+        },
+        "status": "OK"
+      }
+    ]
+  }],
+  "status": "OK"
+}
+
+test5 = {"menu": {  
+  "id": "file",  
+  "value": "File",  
+  "popup": {  
+    "menuitem": [  
+      {"value": "New", "onclick": "CreateDoc()"},  
+      {"value": "Open", "onclick": "OpenDoc()"},  
+      {"value": "Save", "onclick": "SaveDoc()"}  
+    ]  
+  }  
+}}  
+
+testCases = [test1, test2, test3, test4, test5]

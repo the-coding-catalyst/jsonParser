@@ -1,75 +1,4 @@
 import json
-# jsonString = {"nme":"bob", "langueges": ["Engilish", "hindi"], "Adderess": {"cities": ["patna", "chhapra", {"city": {"this": "is", "shit": "yes"}}], "age":"23", "random":{"random1":"1", "random2":"2"}}}
-jsonString = [
-	{
-		"id": "0001",
-		"type": "donut",
-		"name": "Cake",
-		"ppu": 0.55,
-		"batters":
-			{
-				"batter":
-					[
-						{ "id": "1001", "type": "Regular" },
-						{ "id": "1002", "type": "Chocolate" },
-						{ "id": "1003", "type": "Blueberry" },
-						{ "id": "1004", "type": "Devil's Food" }
-					]
-			},
-		"topping":
-			[
-				{ "id": "5001", "type": "None" },
-				{ "id": "5002", "type": "Glazed" },
-				{ "id": "5005", "type": "Sugar" },
-				{ "id": "5007", "type": "Powdered Sugar" },
-				{ "id": "5006", "type": "Chocolate with Sprinkles" },
-				{ "id": "5003", "type": "Chocolate" },
-				{ "id": "5004", "type": "Maple" }
-			]
-	},
-	{
-		"id": "0002",
-		"type": "donut",
-		"name": "Raised",
-		"ppu": 0.55,
-		"batters":
-			{
-				"batter":
-					[
-						{ "id": "1001", "type": "Regular" }
-					]
-			},
-		"topping":
-			[
-				{ "id": "5001", "type": "None" },
-				{ "id": "5002", "type": "Glazed" },
-				{ "id": "5005", "type": "Sugar" },
-				{ "id": "5003", "type": "Chocolate" },
-				{ "id": "5004", "type": "Maple" }
-			]
-	},
-	{
-		"id": "0003",
-		"type": "donut",
-		"name": "Old Fashioned",
-		"ppu": 0.55,
-		"batters":
-			{
-				"batter":
-					[
-						{ "id": "1001", "type": "Regular" },
-						{ "id": "1002", "type": "Chocolate" }
-					]
-			},
-		"topping":
-			[
-				{ "id": "5001", "type": "None" },
-				{ "id": "5002", "type": "Glazed" },
-				{ "id": "5003", "type": "Chocolate" },
-				{ "id": "5004", "type": "Maple" }
-			]
-	}
-]
 
 def isfloat(num):
     try:
@@ -176,21 +105,9 @@ def jsonParser(string, isArray):
             elif char == "{":
                 idx, newString = findNextIndex(string, idx)
                 tempRes = jsonParser(newString[1:-1], False)
-#                 if newString == '{"this": "is", "shit": "yes"}':
-#                     print(tempRes, "-----------------------")
                 result[key[1:]] = tempRes
             else:
                 idx, newString = findNextIndex(string, idx)
                 result[key[1:]] = jsonParser(newString[1:-1], True)
         idx += 1
     return result
-
-# # print(isArray, "wefrwerwerwer")
-# # string = string[1:-1] if isArray else string
-# result = jsonParser(string, isArray)
-# result = result[0] if isArray else result
-# print(json.loads(string) == result)
-# print("---------------------")
-# print(json.loads(string))
-# print("-------------------")
-# print(result)
